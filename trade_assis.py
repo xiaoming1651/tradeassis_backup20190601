@@ -301,7 +301,7 @@ class TradeAssis(EClient, EWrapper):
                     order['modify_price'] = round(order['ocaGroupPrice']*(1+self.config.percent),2)
 
                 if(order['secType'] == 'STK' and order['currency'] == 'HKD'):
-                    order['modify_price'] = (order['modify_price']//0.2)*0.2
+                    order['modify_price'] = round((order['modify_price']//0.2)*0.2,2)
                 curPrice = order['lmtPrice']
                 priceType = 1
                 if (curPrice==0 and order['trailStopPrice'] != 1.7976931348623157e+308):
